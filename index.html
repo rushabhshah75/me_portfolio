@@ -1,882 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rushabh Shah | SOC Analyst Portfolio</title>
-
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rushabh Shah | SOC Analyst Portfolio</title>
+<meta name="description" content="Rushabh Shah – SOC Analyst. SIEM monitoring (Wazuh, Splunk), threat detection, incident response. CompTIA CySA+ certified.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<style>
+:root{--bg:#0b0f17;--card:#121826;--line:#1f2937;--txt:#e5e7eb;--mut:#94a3b8;--acc:#38bdf8;--acc2:#22d3a6;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font:15px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--txt)}
+a{color:inherit;text-decoration:none}
+svg{width:1em;height:1em;display:block}
+.wrap{max-width:1000px;margin:auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:9;background:rgba(11,15,23,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-weight:700;display:flex;gap:8px;align-items:center}.logo i{color:var(--acc);font-size:20px}
+nav ul{display:flex;gap:18px;list-style:none;overflow-x:auto}
+nav li a{color:var(--mut);font-size:14px;white-space:nowrap}nav li a:hover{color:var(--acc)}
+section{padding:56px 0 8px}
+h2{font-size:22px;display:flex;align-items:center;gap:10px;margin-bottom:22px}
+h2 i{color:var(--acc);font-size:24px}
+.hero{padding:70px 0 20px;display:grid;gap:18px}
+.tag{display:inline-flex;gap:8px;align-items:center;color:var(--acc2);font-size:13px;border:1px solid var(--line);padding:4px 12px;border-radius:99px;width:fit-content}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--acc2);box-shadow:0 0 8px var(--acc2)}
+h1{font-size:clamp(34px,6vw,56px);line-height:1.1}
+h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mut);max-width:680px;font-size:16px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{display:inline-flex;gap:8px;align-items:center;padding:10px 18px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-weight:600;font-size:14px}
+.btn:hover{border-color:var(--acc)}
+.btn.p{background:var(--acc);color:#04111c;border-color:var(--acc)}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.badge{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-size:13px}
+.badge i{color:var(--acc)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;transition:.2s}
+.card:hover{border-color:var(--acc);transform:translateY(-2px)}
+.ic{width:42px;height:42px;border-radius:10px;background:rgba(56,189,248,.12);color:var(--acc);display:grid;place-items:center;font-size:22px;margin-bottom:10px}
+.card h3{font-size:16px;margin-bottom:4px}.card p,.card li{color:var(--mut);font-size:14px}
+.about p{color:var(--mut);margin-bottom:12px;max-width:760px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{display:inline-flex;gap:6px;align-items:center;font-size:12.5px;padding:4px 10px;border-radius:99px;background:#0e1422;border:1px solid var(--line);color:var(--txt)}
+.chip i{color:var(--acc2);font-size:14px}
+.skillhead{display:flex;gap:10px;align-items:center;font-weight:600}.skillhead i{color:var(--acc);font-size:20px}
+.tl{border-left:2px solid var(--line);margin-left:10px;display:grid;gap:18px}
+.tl .item{position:relative;padding-left:24px}
+.tl .item:before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px var(--bg)}
+.item h3{font-size:16px}.item .meta{color:var(--acc2);font-size:13px;margin:2px 0 6px}
+.item ul{padding-left:18px;color:var(--mut);font-size:14px}.item li{margin-bottom:3px}
+.pill{font-size:11px;color:var(--acc);border:1px solid var(--acc);border-radius:99px;padding:1px 8px;margin-left:8px;vertical-align:middle}
+.contact a.card{display:flex;gap:12px;align-items:center}
+.contact .ic{margin:0;flex:none}
+.contact small{color:var(--mut);display:block;font-size:12px}
+footer{padding:40px 0;color:var(--mut);text-align:center;font-size:13px}
+@media(max-width:600px){nav ul{gap:12px}.logo span{display:none}}
+</style>
 </head>
-
 <body>
 
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Rushabh Shah" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Rushabh Shah">Rushabh Shah</h1>
-          <p class="title">SOC Analyst | Cybersecurity Analyst</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <a href="./Rushabh_SOC.pdf" download class="sidebar-resume-btn">
-          <ion-icon name="download-outline"></ion-icon>
-          <span>Download Resume</span>
-        </a>
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-              <a href="mailto:rushabhshah75@gmail.com" class="contact-link">rushabhshah5001@gmail.com</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-              <a href="tel:+918347258725" class="contact-link">+91 8347258725</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-              <address>Vadodara, Gujarat, India</address>
-            </div>
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/rushabh-shah-1b2218282" target="_blank" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://github.com/rushabhshah75" target="_blank" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://me-portfolio-gold.vercel.app/" target="_blank" class="social-link">
-              <ion-icon name="globe-outline"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Projects</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Experience</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <div id="gridscan-hero" class="gridscan-hero"></div>
-
-        <section class="about-text">
-          <p>
-            I am a cybersecurity professional with 1.2 years of experience in Security Operations Center environments,
-            where I have supported continuous monitoring, alert triage, and incident response across diverse security events.
-          </p>
-          <p>
-            My experience includes SIEM monitoring with Wazuh and Splunk basics, log analysis, threat detection, and
-            vulnerability assessment across Windows and Linux platforms. I have worked with firewall monitoring, IDS/IPS,
-            Wireshark, Nmap, Burp Suite, and Python automation to strengthen security monitoring and incident handling.
-          </p>
-          <p>
-            I apply a structured approach to security operations using MITRE ATT&CK, the Cyber Kill Chain, and strong
-            analytical reasoning to investigate suspicious activity, support proactive threat hunting, and contribute to
-            resilient network and endpoint security.
-          </p>
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <ion-icon name="shield-outline" class="service-ion-icon"></ion-icon>
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">SOC Monitoring</h4>
-                <p class="service-item-text">
-                  Monitoring security events and investigating alerts through SIEM-driven operations.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <ion-icon name="bug-outline" class="service-ion-icon"></ion-icon>
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Threat Detection</h4>
-                <p class="service-item-text">
-                  Detecting suspicious behavior and correlating indicators across security telemetry.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <ion-icon name="search-outline" class="service-ion-icon"></ion-icon>
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Incident Response</h4>
-                <p class="service-item-text">
-                  Supporting timely incident analysis, containment, and documentation for security events.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <ion-icon name="wifi-outline" class="service-ion-icon"></ion-icon>
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Network Security</h4>
-                <p class="service-item-text">
-                  Analyzing traffic and securing network layers using monitoring and forensic tools.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - certifications
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">Certifications</h3>
-
-          <ul class="certifications-list">
-
-            <li class="certification-item content-card">
-              <div class="certification-content">
-                <h4 class="h4 certification-title">CompTIA CySA+</h4>
-                <p class="certification-issuer">CompTIA</p>
-              </div>
-            </li>
-
-            <li class="certification-item content-card">
-              <div class="certification-content">
-                <h4 class="h4 certification-title">Data Science Using Python</h4>
-                <p class="certification-issuer">SWAYAM</p>
-              </div>
-            </li>
-
-            <li class="certification-item content-card">
-              <div class="certification-content">
-                <h4 class="h4 certification-title">Introduction to Data Analytics</h4>
-                <p class="certification-issuer">Simplilearn</p>
-              </div>
-            </li>
-
-            <li class="certification-item content-card">
-              <div class="certification-content">
-                <h4 class="h4 certification-title">HTML</h4>
-                <p class="certification-issuer">IIT Bombay</p>
-              </div>
-            </li>
-
-            <li class="certification-item content-card">
-              <div class="certification-content">
-                <h4 class="h4 certification-title">Python</h4>
-                <p class="certification-issuer">IIT Bombay</p>
-              </div>
-            </li>
-
-            <li class="certification-item content-card">
-              <div class="certification-content">
-                <h4 class="h4 certification-title">Java &amp; C</h4>
-                <p class="certification-issuer">IIT Bombay</p>
-              </div>
-            </li>
-
-            <li class="certification-item content-card">
-              <div class="certification-content">
-                <h4 class="h4 certification-title">Android App Development using Kotlin</h4>
-                <p class="certification-issuer">IIT Bombay</p>
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <section class="timeline">
-
-          <div class="title-wrapper education-title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Education</h3>
-            <a href="./Rushabh_SOC.pdf" download class="resume-download-btn">
-              <ion-icon name="download-outline"></ion-icon>
-              Download Resume
-            </a>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Master of Computer Applications (MCA)</h4>
-              <span>2024 — 2026</span>
-              <p class="timeline-text">Parul University, Vadodara &nbsp;|&nbsp; CGPA: 8.34</p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Bachelor of Computer Applications (BCA)</h4>
-              <span>2021 — 2024</span>
-              <p class="timeline-text">Parul University, Vadodara &nbsp;|&nbsp; CGPA: 8.40</p>
-            </li>
-
-          </ol>
-
-        </section>
- <!-- Research Work -->
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="document-text-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Zero Trust Architecture in Cloud Security</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Zero Trust Architecture in Cloud Security</h4>
-              <p class="timeline-text">
-                Published research covering Identity Verification, Least Privilege, Zero Trust, and Cloud Security
-                principles for modern enterprise environments.
-              </p>
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">Technical Skills</h3>
-
-          <div class="skills-list content-card">
-
-            <div class="skills-group">
-              <h4 class="skills-group-title">🛡 Security</h4>
-              <div class="skills-grid">
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="shield-checkmark-outline"></ion-icon></div><span class="skill-name">SOC Operations</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="server-outline"></ion-icon></div><span class="skill-name">SIEM (Wazuh, Splunk)</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="bug-outline"></ion-icon></div><span class="skill-name">Threat Detection</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="flash-outline"></ion-icon></div><span class="skill-name">Incident Response</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="search-outline"></ion-icon></div><span class="skill-name">Threat Hunting</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="file-tray-full-outline"></ion-icon></div><span class="skill-name">Log Analysis</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="eye-outline"></ion-icon></div><span class="skill-name">Security Monitoring</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="warning-outline"></ion-icon></div><span class="skill-name">Vulnerability Assessment</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="options-outline"></ion-icon></div><span class="skill-name">Risk Assessment</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="radio-outline"></ion-icon></div><span class="skill-name">IOC Analysis</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="compass-outline"></ion-icon></div><span class="skill-name">MITRE ATT&CK</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="layers-outline"></ion-icon></div><span class="skill-name">Cyber Kill Chain</span></div>
-              </div>
-            </div>
-
-            <div class="skills-group">
-              <h4 class="skills-group-title">🌐 Networking</h4>
-              <div class="skills-grid">
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="planet-outline"></ion-icon></div><span class="skill-name">TCP/IP</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="globe-outline"></ion-icon></div><span class="skill-name">DNS</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="globe-outline"></ion-icon></div><span class="skill-name">HTTP/HTTPS</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="terminal-outline"></ion-icon></div><span class="skill-name">SSH</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="hardware-chip-outline"></ion-icon></div><span class="skill-name">Firewalls</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="lock-closed-outline"></ion-icon></div><span class="skill-name">IDS/IPS</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="unlock-outline"></ion-icon></div><span class="skill-name">VPN</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="wifi-outline"></ion-icon></div><span class="skill-name">Network Monitoring</span></div>
-              </div>
-            </div>
-
-            <div class="skills-group">
-              <h4 class="skills-group-title">🛠 Security Tools</h4>
-              <div class="skills-grid">
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="server-outline"></ion-icon></div><span class="skill-name">Wazuh</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="analytics-outline"></ion-icon></div><span class="skill-name">Splunk</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="pulse-outline"></ion-icon></div><span class="skill-name">Wireshark</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="scan-outline"></ion-icon></div><span class="skill-name">Nmap</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="construct-outline"></ion-icon></div><span class="skill-name">Burp Suite</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="flash-outline"></ion-icon></div><span class="skill-name">Metasploit</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="git-branch-outline"></ion-icon></div><span class="skill-name">Git</span></div>
-              </div>
-            </div>
-
-            <div class="skills-group">
-              <h4 class="skills-group-title">💻 Operating Systems</h4>
-              <div class="skills-grid">
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="logo-laptop"></ion-icon></div><span class="skill-name">Kali Linux</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="desktop-outline"></ion-icon></div><span class="skill-name">Ubuntu</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="logo-windows"></ion-icon></div><span class="skill-name">Windows</span></div>
-              </div>
-            </div>
-
-            <div class="skills-group">
-              <h4 class="skills-group-title">🐍 Programming</h4>
-              <div class="skills-grid">
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="logo-python"></ion-icon></div><span class="skill-name">Python</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="terminal-outline"></ion-icon></div><span class="skill-name">Bash</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="logo-javascript"></ion-icon></div><span class="skill-name">JavaScript</span></div>
-                <div class="skill-card"><div class="skill-icon"><ion-icon name="logo-html5"></ion-icon></div><span class="skill-name">HTML</span></div>
-              </div>
-            </div>
-
-          </div>
-
-        </section>
-
-      </article>
-
-
-      <!--
-        - #PROJECTS (formerly Portfolio)
-      -->
-
-      <article class="portfolio" data-page="projects">
-
-        <header>
-          <h2 class="h2 article-title">Projects</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Network Security</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web Security</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Security Tools</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-              <div class="select-value" data-selecct-value>Select category</div>
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-            </button>
-
-            <ul class="select-list">
-              <li class="select-item"><button data-select-item>All</button></li>
-              <li class="select-item"><button data-select-item>Network Security</button></li>
-              <li class="select-item"><button data-select-item>Web Security</button></li>
-              <li class="select-item"><button data-select-item>Security Tools</button></li>
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item active" data-filter-item data-category="network security">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="analytics-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-6.png" alt="Network Packet Analyzer" loading="lazy">
-                </figure>
-                <div class="project-content">
-                  <div class="project-meta">
-                    <h3 class="project-title">Network Packet Analyzer</h3>
-                    <span class="project-category">Network Security</span>
-                  </div>
-                  <p class="project-description">A Python-based packet analyzer for capturing and analyzing live network traffic, supporting TCP, UDP, ICMP, and IP protocol inspection.</p>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="network security">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="scan-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-9.png" alt="Simple Port Scanner" loading="lazy">
-                </figure>
-                <div class="project-content">
-                  <div class="project-meta">
-                    <h3 class="project-title">Simple Port Scanner</h3>
-                    <span class="project-category">Network Security</span>
-                  </div>
-                  <p class="project-description">A multithreaded TCP port scanner developed in Python to identify open ports and active services for network security assessments.</p>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="web security">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="globe-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-2.png" alt="HTTP Header Scanner" loading="lazy">
-                </figure>
-                <div class="project-content">
-                  <div class="project-meta">
-                    <h3 class="project-title">HTTP Header Scanner</h3>
-                    <span class="project-category">Web Security</span>
-                  </div>
-                  <p class="project-description">A web security tool that scans websites for missing HTTP security headers and identifies common security misconfigurations.</p>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="web security">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="finger-print-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-4.png" alt="Hash Identifier" loading="lazy">
-                </figure>
-                <div class="project-content">
-                  <div class="project-meta">
-                    <h3 class="project-title">Hash Identifier</h3>
-                    <span class="project-category">Web Security</span>
-                  </div>
-                  <p class="project-description">A utility that identifies common cryptographic hash algorithms including MD5, SHA-1, SHA-256, and SHA-512.</p>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="security tools">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-8.jpg" alt="Password Manager" loading="lazy">
-                </figure>
-                <div class="project-content">
-                  <div class="project-meta">
-                    <h3 class="project-title">Password Manager</h3>
-                    <span class="project-category">Security Tools</span>
-                  </div>
-                  <p class="project-description">A secure password management application with encrypted credential storage and password generation.</p>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="security tools">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="desktop-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-7.png" alt="Keylogger Educational Project" loading="lazy">
-                </figure>
-                <div class="project-content">
-                  <div class="project-meta">
-                    <h3 class="project-title">Keylogger (Educational Project)</h3>
-                    <span class="project-category">Security Tools</span>
-                  </div>
-                  <p class="project-description">A keyboard monitoring application developed strictly for cybersecurity education and defensive research in a controlled environment.</p>
-                </div>
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-      <!--
-        - #EXPERIENCE (formerly Blog)
-      -->
-
-      <article class="blog" data-page="experience">
-
-        <header>
-          <h2 class="h2 article-title">Experience</h2>
-        </header>
-
-        <!-- Professional Experience -->
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Professional Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">SOC Analyst Intern — CyberTech Shield</h4>
-              <span>Feb 2025 – Mar 2026</span>
-              <ul class="certifications-list">
-                <li class="certification-item content-card"><div class="certification-content"><p class="certification-issuer">Monitored SIEM alerts using Wazuh and investigated suspicious events.</p></div></li>
-                <li class="certification-item content-card"><div class="certification-content"><p class="certification-issuer">Analyzed Windows and Linux logs for threat detection and correlation.</p></div></li>
-                <li class="certification-item content-card"><div class="certification-content"><p class="certification-issuer">Supported incident response and documented investigation findings clearly.</p></div></li>
-                <li class="certification-item content-card"><div class="certification-content"><p class="certification-issuer">Reviewed firewall, IDS/IPS, and network traffic for anomalies.</p></div></li>
-              </ul>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Mobile App Developer Intern — Arth Consultancy Services</h4>
-              <span>Nov 2023 – Mar 2024</span>
-              <ul class="certifications-list">
-                <li class="certification-item content-card"><div class="certification-content"><p class="certification-issuer">Developed secure web and mobile applications with authentication features.</p></div></li>
-                <li class="certification-item content-card"><div class="certification-content"><p class="certification-issuer">Implemented secure coding practices to reduce common application risks.</p></div></li>
-                <li class="certification-item content-card"><div class="certification-content"><p class="certification-issuer">Improved database security and prevented SQL injection vulnerabilities.</p></div></li>
-                <li class="certification-item content-card"><div class="certification-content"><p class="certification-issuer">Supported testing, debugging, deployment, and API integration tasks.</p></div></li>
-              </ul>
-            </li>
-
-          </ol>
-
-        </section>
-
-        <!-- Achievements -->
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="trophy-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Achievements</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Published research on Zero Trust Architecture in Cloud Security</h4>
-              <p class="timeline-text">
-                Explored Identity Verification, Least Privilege, Zero Trust, and Cloud Security principles.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Developed multiple cybersecurity tools using Python</h4>
-              <p class="timeline-text">
-                Built practical security-focused tools for analysis, scanning, and detection workflows.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Built a SOC Lab using Wazuh SIEM</h4>
-              <p class="timeline-text">
-                Designed and configured a hands-on Security Operations Center environment for monitoring practice.
-              </p>
-            </li>
-
-          </ol>
-
-        </section>
-
-       
-
-        <!-- Security Activities -->
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="shield-checkmark-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Security Activities</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">SOC Lab Using Wazuh</h4>
-              <p class="timeline-text">
-                Built a security operations lab to practice SIEM monitoring, threat detection, and incident response.
-              </p>
-            </li>
-
-          </ol>
-
-        </section>
-
-      </article>
-
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Let's Connect</h2>
-        </header>
-
-        <p class="connect-intro">
-          I am actively seeking opportunities in SOC operations, cybersecurity monitoring, and incident response. Feel free to connect.
-        </p>
-
-        <ul class="connect-list">
-
-          <li class="connect-item">
-            <a href="mailto:rushabhshah75@gmail.com" class="connect-card">
-              <div class="connect-icon-box">
-                <ion-icon name="mail-outline"></ion-icon>
-              </div>
-              <div class="connect-info">
-                <p class="connect-label">Email</p>
-                <span class="connect-value">rushabhshah5001@gmail.com</span>
-              </div>
-              <ion-icon name="arrow-forward-outline" class="connect-arrow"></ion-icon>
-            </a>
-          </li>
-
-          <li class="connect-item">
-            <a href="tel:+918347258725" class="connect-card">
-              <div class="connect-icon-box">
-                <ion-icon name="call-outline"></ion-icon>
-              </div>
-              <div class="connect-info">
-                <p class="connect-label">Phone</p>
-                <span class="connect-value">+91 8347258725</span>
-              </div>
-              <ion-icon name="arrow-forward-outline" class="connect-arrow"></ion-icon>
-            </a>
-          </li>
-
-          <li class="connect-item">
-            <a href="https://www.linkedin.com/in/rushabh-shah-1b2218282" target="_blank" class="connect-card">
-              <div class="connect-icon-box">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </div>
-              <div class="connect-info">
-                <p class="connect-label">LinkedIn</p>
-                <span class="connect-value">linkedin.com/in/rushabh-shah-1b2218282</span>
-              </div>
-              <ion-icon name="arrow-forward-outline" class="connect-arrow"></ion-icon>
-            </a>
-          </li>
-
-          <li class="connect-item">
-            <a href="https://github.com/rushabhshah75" target="_blank" class="connect-card">
-              <div class="connect-icon-box">
-                <ion-icon name="logo-github"></ion-icon>
-              </div>
-              <div class="connect-info">
-                <p class="connect-label">GitHub</p>
-                <span class="connect-value">github.com/rushabhshah75</span>
-              </div>
-              <ion-icon name="arrow-forward-outline" class="connect-arrow"></ion-icon>
-            </a>
-          </li>
-
-          <li class="connect-item">
-            <a href="https://me-portfolio-gold.vercel.app/" target="_blank" class="connect-card">
-              <div class="connect-icon-box">
-                <ion-icon name="globe-outline"></ion-icon>
-              </div>
-              <div class="connect-info">
-                <p class="connect-label">Portfolio</p>
-                <span class="connect-value">me-portfolio-gold.vercel.app</span>
-              </div>
-              <ion-icon name="arrow-forward-outline" class="connect-arrow"></ion-icon>
-            </a>
-          </li>
-
-          <li class="connect-item">
-            <div class="connect-card connect-card--static">
-              <div class="connect-icon-box">
-                <ion-icon name="location-outline"></ion-icon>
-              </div>
-              <div class="connect-info">
-                <p class="connect-label">Location</p>
-                <span class="connect-value">Vadodara, Gujarat, India</span>
-              </div>
-            </div>
-          </li>
-
-        </ul>
-
-        <div class="availability-box">
-          <div class="availability-header">
-            <span class="availability-dot"></span>
-            <h3 class="h4">Open to Opportunities</h3>
-          </div>
-          <p class="availability-text">
-            SOC Analyst roles &nbsp;&bull;&nbsp; Security monitoring &nbsp;&bull;&nbsp; Incident response &nbsp;&bull;&nbsp; Collaboration opportunities
-          </p>
-        </div>
-
-      </article>
-
+<nav><div class="wrap">
+  <a href="#top" class="logo"><i data-i="shield"></i><span>Rushabh Shah</span></a>
+  <ul>
+    <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li>
+    <li><a href="#investigations">Investigations</a></li><li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<main class="wrap" id="top">
+
+<header class="hero">
+  <span class="tag"><span class="dot"></span> Open to SOC Analyst opportunities</span>
+  <h1>Hi, I'm <span>Rushabh Shah</span></h1>
+  <p class="sub"><b>SOC Analyst</b> focused on SIEM monitoring, threat detection and incident response. I investigate alerts, correlate logs and escalate real threats with clear documentation. Based in Vadodara, Gujarat, India.</p>
+  <div class="btns">
+    <a class="btn p" href="./Rushabh_Shah.pdf" download><i data-i="download"></i> Download Resume</a>
+    <a class="btn" href="#contact"><i data-i="mail"></i> Get in touch</a>
+    <a class="btn" href="https://github.com/rushabhshah75" target="_blank" rel="noopener"><i data-i="github"></i> GitHub</a>
+  </div>
+  <div class="badges">
+    <span class="badge"><i data-i="award"></i> CompTIA CySA+</span>
+    <span class="badge"><i data-i="eye"></i> Wazuh &amp; Splunk SIEM</span>
+    <span class="badge"><i data-i="search"></i> MITRE ATT&amp;CK</span>
+    <span class="badge"><i data-i="briefcase"></i> CyberTech Shield</span>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <h2><i data-i="shield"></i> About Me</h2>
+  <p>I'm a CompTIA CySA+ certified cybersecurity analyst with hands-on experience in continuous security monitoring, alert triage, log analysis and incident escalation across endpoints, servers and network devices.</p>
+  <p>I work with Wazuh and Splunk, Wireshark and Nmap, and apply MITRE ATT&amp;CK and the Cyber Kill Chain to separate true threats from false positives. I also write Python tools to automate analysis and strengthen detection.</p>
+  <div class="grid" style="margin-top:20px">
+    <div class="card"><div class="ic"><i data-i="eye"></i></div><h3>SOC Monitoring</h3><p>Watching SIEM, endpoint and network telemetry and investigating alerts.</p></div>
+    <div class="card"><div class="ic"><i data-i="bug"></i></div><h3>Threat Detection</h3><p>Correlating indicators to spot suspicious behavior early.</p></div>
+    <div class="card"><div class="ic"><i data-i="zap"></i></div><h3>Incident Response</h3><p>Triage, escalation and documentation that response teams can act on.</p></div>
+    <div class="card"><div class="ic"><i data-i="network"></i></div><h3>Network Security</h3><p>Traffic analysis with Wireshark, Nmap, IDS/IPS and firewall logs.</p></div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2><i data-i="terminal"></i> Technical Skills</h2>
+  <div class="grid" id="skillGrid"></div>
+</section>
+
+<section id="experience">
+  <h2><i data-i="briefcase"></i> Experience</h2>
+  <div class="tl">
+    <div class="item">
+      <h3>Cybersecurity Analyst <span class="pill">Current</span></h3>
+      <div class="meta">CyberTech Shield · Vadodara, Gujarat · Sep 2026 – Present</div>
+      <ul>
+        <li>Monitor security events across SIEM, endpoint and network telemetry to detect suspicious activity.</li>
+        <li>Triage alerts, validate context and separate true positives from false positives.</li>
+        <li>Document findings and escalate potentially malicious activity with supporting evidence.</li>
+      </ul>
     </div>
+    <div class="item">
+      <h3>SOC Analyst Intern</h3>
+      <div class="meta">CyberTech Shield · Vadodara, Gujarat · Feb 2026 – Aug 2026</div>
+      <ul>
+        <li>Monitored alerts and logs in Wazuh SIEM across endpoints, servers and network devices.</li>
+        <li>Investigated failed logins and suspicious behavior via log correlation, mapped to MITRE ATT&amp;CK.</li>
+        <li>Performed incident triage, escalation and documentation following SOC procedures.</li>
+        <li>Used Wireshark, Nmap and Linux utilities for traffic analysis and investigation.</li>
+        <li>Configured alert rules and dashboards to improve detection and visibility.</li>
+        <li>Supported vulnerability assessments and day-to-day SIEM operations.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  </main>
+<section id="investigations">
+  <h2><i data-i="search"></i> Security Investigations</h2>
+  <div class="grid">
+    <div class="card"><div class="ic"><i data-i="mail"></i></div><h3>Phishing Email Investigation</h3>
+      <p>Analyzed sender details, email headers, URLs and IOCs to determine intent, document the threat and support escalation.</p>
+      <div class="chips"><span class="chip">MITRE T1566</span><span class="chip">IOC Analysis</span></div></div>
+    <div class="card"><div class="ic"><i data-i="lock"></i></div><h3>Brute-Force Attack Investigation</h3>
+      <p>Correlated authentication logs, source IPs and login patterns to confirm brute-force behavior and recommend response.</p>
+      <div class="chips"><span class="chip">MITRE T1110</span><span class="chip">Log Correlation</span></div></div>
+  </div>
+</section>
 
+<section id="projects">
+  <h2><i data-i="flask"></i> Projects &amp; Research</h2>
+  <div class="grid">
+    <div class="card"><div class="ic"><i data-i="flask"></i></div><h3>SOC Home Lab (Wazuh)</h3><p>Hands-on lab for SIEM monitoring, threat detection and incident response practice.</p><div class="chips"><span class="chip">Wazuh</span><span class="chip">SIEM</span></div></div>
+    <div class="card"><div class="ic"><i data-i="network"></i></div><h3>Network Packet Analyzer</h3><p>Captures live traffic and inspects TCP, UDP, ICMP and IP packets.</p><div class="chips"><span class="chip">Python</span><span class="chip">Networking</span></div></div>
+    <div class="card"><div class="ic"><i data-i="search"></i></div><h3>Multithreaded Port Scanner</h3><p>Finds open ports and active services for network security assessments.</p><div class="chips"><span class="chip">Python</span><span class="chip">Threading</span></div></div>
+    <div class="card"><div class="ic"><i data-i="globe"></i></div><h3>HTTP Header Scanner</h3><p>Detects missing security headers and common web misconfigurations.</p><div class="chips"><span class="chip">Python</span><span class="chip">Web Security</span></div></div>
+    <div class="card"><div class="ic"><i data-i="file"></i></div><h3>Zero Trust in Cloud Security</h3><p>Published research on identity verification, least privilege and Zero Trust principles.</p><div class="chips"><span class="chip">Research</span><span class="chip">Cloud</span></div></div>
+  </div>
+  <p style="margin-top:14px"><a class="btn" href="https://github.com/rushabhshah75" target="_blank" rel="noopener"><i data-i="github"></i> More on GitHub <i data-i="arrow"></i></a></p>
+</section>
 
-  <script src="./assets/js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js"></script>
-  <script src="./assets/js/gridscan.js"></script>
-  <script>
-    // Boot GridScan on the About page hero
-    (function () {
-      const el = document.getElementById('gridscan-hero');
-      if (!el || typeof THREE === 'undefined' || typeof initGridScan === 'undefined') return;
-      initGridScan(el, {
-        sensitivity:     0.55,
-        lineThickness:   1,
-        linesColor:      '#1e1e22',
-        scanColor:       '#FFD870',
-        scanOpacity:     0.55,
-        gridScale:       0.12,
-        lineJitter:      0.12,
-        scanDirection:   'pingpong',
-        noiseIntensity:  0.008,
-        scanGlow:        0.6,
-        scanSoftness:    2,
-        scanPhaseTaper:  0.9,
-        scanDuration:    2.2,
-        scanDelay:       1.8,
-        snapBackDelay:   300,
-      });
-    })();
-  </script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<section id="education">
+  <h2><i data-i="cap"></i> Education &amp; Certifications</h2>
+  <div class="grid">
+    <div class="card"><div class="ic"><i data-i="cap"></i></div><h3>MCA</h3><p>Parul University · 2024 – 2026<br>CGPA 8.34</p></div>
+    <div class="card"><div class="ic"><i data-i="cap"></i></div><h3>BCA – Cyber Security &amp; Forensics</h3><p>Parul University · 2021 – 2024<br>CGPA 8.40</p></div>
+  </div>
+  <div class="grid" style="margin-top:14px">
+    <div class="card"><div class="ic"><i data-i="award"></i></div><h3>CompTIA CySA+</h3><p>Cybersecurity Analyst</p></div>
+    <div class="card"><div class="ic"><i data-i="award"></i></div><h3>LetsDefend</h3><p>SOC Analyst</p></div>
+    <div class="card"><div class="ic"><i data-i="award"></i></div><h3>Maltego Academy</h3><p>Cybersecurity Investigations</p></div>
+    <div class="card"><div class="ic"><i data-i="award"></i></div><h3>Splunk Education</h3><p>Free Training</p></div>
+    <div class="card"><div class="ic"><i data-i="award"></i></div><h3>Wazuh</h3><p>Documentation &amp; Lab</p></div>
+  </div>
+</section>
 
+<section id="contact" class="contact">
+  <h2><i data-i="mail"></i> Let's Connect</h2>
+  <p class="sub" style="margin-bottom:18px">I'm looking for SOC Analyst roles in security monitoring and incident response. Feel free to reach out.</p>
+  <div class="grid">
+    <a class="card" href="mailto:rushabhshah5001@gmail.com"><div class="ic"><i data-i="mail"></i></div><div><small>Email</small>rushabhshah5001@gmail.com</div></a>
+    <a class="card" href="tel:+918347258725"><div class="ic"><i data-i="phone"></i></div><div><small>Phone</small>+91 8347258725</div></a>
+    <a class="card" href="https://www.linkedin.com/in/rushabh-shah-1b2218282" target="_blank" rel="noopener"><div class="ic"><i data-i="linkedin"></i></div><div><small>LinkedIn</small>rushabh-shah</div></a>
+    <a class="card" href="https://github.com/rushabhshah75" target="_blank" rel="noopener"><div class="ic"><i data-i="github"></i></div><div><small>GitHub</small>rushabhshah75</div></a>
+    <div class="card" style="display:flex;gap:12px;align-items:center"><div class="ic" style="margin:0"><i data-i="pin"></i></div><div><small style="color:var(--mut);font-size:12px">Location</small>Vadodara, Gujarat, India</div></div>
+  </div>
+</section>
+
+</main>
+<footer>© 2026 Rushabh Shah · SOC Analyst</footer>
+
+<script>
+const I={
+shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+phone:'<path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/>',
+pin:'<path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.500"/>',
+linkedin:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 7.500v.01M12 17v-6m0 3c0-2 1.500-3 3-3s2 1 2 3v3"/>',
+github:'<path d="M9 19c-4 1-4-2-6-2m12 4v-3.500a3 3 0 00-1-2.300c3 0 6-1.500 6-5.200a4.300 4.300 0 00-1.200-3 4 4 0 00-.1-3s-1-.3-3.300 1.200a11.500 11.500 0 00-6 0C6.800 3.700 5.800 4 5.800 4a4 4 0 00-.1 3A4.300 4.300 0 004.500 10c0 3.700 3 5.200 6 5.200a3 3 0 00-1 2.300V21"/>',
+globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+download:'<path d="M12 4v11m-4-4l4 4 4-4M5 20h14"/>',
+eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+bug:'<rect x="8" y="8" width="8" height="12" rx="4"/><path d="M9 8a3 3 0 016 0M4 13h4M16 13h4M5 19l3-2M19 19l-3-2M5 7l3 2M19 7l-3 2"/>',
+zap:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+network:'<circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-6 5M12 12l6 5"/>',
+terminal:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/>',
+code:'<path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/>',
+search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
+cap:'<path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/>',
+award:'<circle cx="12" cy="9" r="6"/><path d="M8.500 14L7 22l5-3 5 3-1.500-8"/>',
+briefcase:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 13h18"/>',
+file:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>',
+arrow:'<path d="M5 12h14m-5-5l5 5-5 5"/>',
+lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',
+flask:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/>',
+check:'<path d="M5 12l5 5 9-10"/>'
+};
+// Skills data: [icon, title, items]
+const S=[
+['eye','SIEM & Detection',['Wazuh','Splunk','Alert Triage','Event Correlation','Log Analysis','Detection Rules','Dashboards','IOC Analysis']],
+['bug','Threat & Incident Handling',['Incident Response','Escalation','Threat Hunting','MITRE ATT&CK','Cyber Kill Chain','Phishing Analysis','Brute-Force Detection']],
+['network','Network & Endpoint',['TCP/IP','DNS','HTTP/S','VPN','Firewalls','IDS/IPS','Traffic Analysis','Windows Event Logs']],
+['search','Security Tools',['Wireshark','Nmap','Burp Suite','Metasploit','Git']],
+['code','Scripting & Systems',['Python','Bash','JavaScript','HTML','Windows','Ubuntu','Kali Linux']],
+['shield','Vulnerability & Risk',['Vulnerability Assessment','Risk Assessment','Security Documentation']]
+];
+document.getElementById('skillGrid').innerHTML=S.map(([ic,t,l])=>
+ `<div class="card"><div class="skillhead"><i data-i="${ic}"></i>${t}</div><div class="chips">${l.map(x=>`<span class="chip"><i data-i="check"></i>${x.replace('&','&amp;')}</span>`).join('')}</div></div>`).join('');
+// Render icons
+document.querySelectorAll('[data-i]').forEach(e=>{
+ e.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${I[e.dataset.i]||''}</svg>`;
+});
+</script>
 </body>
-
 </html>
